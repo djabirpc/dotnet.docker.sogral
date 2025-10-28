@@ -16,6 +16,13 @@ pipeline {
             }
         }
 
+        stage('Install Docker') {
+            steps {
+                echo '📥 Instqlling Docker'
+                sh 'apk install docker.io'
+            }
+        }
+
         stage('Get Repo') {
             steps {
                 echo '📥 Cloning the Git repository...'
