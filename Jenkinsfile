@@ -9,20 +9,6 @@ pipeline {
             }
         }
 
-        stage('Check Git') {
-            steps {
-                echo '📥 Checking Git Version'
-                sh 'git -v'
-            }
-        }
-
-        stage('Install Docker') {
-            steps {
-                echo '📥 Instqlling Docker'
-                sh 'apk install docker.io'
-            }
-        }
-
         stage('Get Repo') {
             steps {
                 echo '📥 Cloning the Git repository...'
@@ -62,7 +48,7 @@ pipeline {
                     sh """
                         docker run -d \
                             --name sogral-app-api \
-                            -p 8080:8080 \
+                            -p 8000:8080 \
                             sogral-app-api:latest
                     """
 
